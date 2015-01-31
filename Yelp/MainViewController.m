@@ -9,10 +9,10 @@
 #import "MainViewController.h"
 #import "YelpClient.h"
 
-NSString * const kYelpConsumerKey = @"vxKwwcR_NMQ7WaEiQBK_CA";
-NSString * const kYelpConsumerSecret = @"33QCvh5bIF5jIHR5klQr7RtBDhQ";
-NSString * const kYelpToken = @"uRcRswHFYa1VkDrGV6LAW2F8clGh5JHV";
-NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
+NSString * const kYelpConsumerKey = @"U-Esd3cYBQDJ9n_69LlPfw";
+NSString * const kYelpConsumerSecret = @"DlMPGkbPARYWmbi7qWWx6ZD4KqM";
+NSString * const kYelpToken = @"jMRKOdbHaFTxQ6jSx8XGv-6Xr4nB_JGr";
+NSString * const kYelpTokenSecret = @"uE_Y_nq2P833QUzV-btnblqC2Q0";
 
 @interface MainViewController ()
 
@@ -29,7 +29,7 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
         // You can register for Yelp API keys here: http://www.yelp.com/developers/manage_api_keys
         self.client = [[YelpClient alloc] initWithConsumerKey:kYelpConsumerKey consumerSecret:kYelpConsumerSecret accessToken:kYelpToken accessSecret:kYelpTokenSecret];
         
-        [self.client searchWithTerm:@"Thai" success:^(AFHTTPRequestOperation *operation, id response) {
+        [self.client searchWithTerm:@"Indian" success:^(AFHTTPRequestOperation *operation, id response) {
             NSLog(@"response: %@", response);
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"error: %@", [error description]);
