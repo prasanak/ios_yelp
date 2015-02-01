@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="102" id="KGk-i7-Jjw" customClass="BusinessCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="102"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fey-dk-JTZ">
+                        <rect key="frame" x="8" y="8" width="70" height="70"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="70" id="Ihq-Hd-Fvm"/>
+                            <constraint firstAttribute="width" constant="70" id="kUh-GQ-P3S"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" text="1. Little India Cafe" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FdN-OD-zLl">
+                        <rect key="frame" x="84" y="8" width="185" height="19.5"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="751" text="0.1 mi" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YAf-az-nxY">
+                        <rect key="frame" x="277" y="8" width="34.5" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="469 Reviews" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YaY-Hc-Ic4">
+                        <rect key="frame" x="183" y="30" width="65.5" height="13.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="415 N Mary Ave, Ste 101 Sunnyvale" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q10-18-Sq8">
+                        <rect key="frame" x="86" y="48" width="199.5" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Indian, Cafes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RaW-bM-aJH">
+                        <rect key="frame" x="86" y="62" width="73.5" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="W36-Sh-F6q">
+                        <rect key="frame" x="86" y="28" width="84" height="17"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="17" id="gMd-Bj-8T3"/>
+                            <constraint firstAttribute="width" constant="84" id="lGL-2b-rqm"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Uz-gP-psn">
+                        <rect key="frame" x="301" y="27" width="7" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="fey-dk-JTZ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="03x-nh-FJF"/>
+                    <constraint firstItem="FdN-OD-zLl" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="5oO-x3-WMd"/>
+                    <constraint firstItem="YaY-Hc-Ic4" firstAttribute="leading" secondItem="W36-Sh-F6q" secondAttribute="trailing" constant="13" id="9wc-t8-ZWb"/>
+                    <constraint firstItem="W36-Sh-F6q" firstAttribute="top" secondItem="FdN-OD-zLl" secondAttribute="bottom" constant="0.5" id="EKR-Tt-lCc"/>
+                    <constraint firstItem="YaY-Hc-Ic4" firstAttribute="top" secondItem="FdN-OD-zLl" secondAttribute="bottom" constant="2.5" id="F4y-qz-MHM"/>
+                    <constraint firstItem="YAf-az-nxY" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="FuY-3D-aqK"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="RaW-bM-aJH" secondAttribute="bottom" constant="8" id="HWd-YA-3T4"/>
+                    <constraint firstItem="Q10-18-Sq8" firstAttribute="top" secondItem="W36-Sh-F6q" secondAttribute="bottom" constant="3" id="OPO-Nc-Xwh"/>
+                    <constraint firstItem="W36-Sh-F6q" firstAttribute="leading" secondItem="fey-dk-JTZ" secondAttribute="trailing" constant="8" id="X0M-D1-mWx"/>
+                    <constraint firstAttribute="trailing" secondItem="YAf-az-nxY" secondAttribute="trailing" constant="8" id="a6s-Ow-S5l"/>
+                    <constraint firstAttribute="trailing" secondItem="7Uz-gP-psn" secondAttribute="trailing" constant="12" id="dkf-cm-88U"/>
+                    <constraint firstItem="RaW-bM-aJH" firstAttribute="top" secondItem="W36-Sh-F6q" secondAttribute="bottom" constant="17" id="hgt-C9-hqy"/>
+                    <constraint firstItem="fey-dk-JTZ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="o9e-Pz-SHW"/>
+                    <constraint firstItem="YaY-Hc-Ic4" firstAttribute="leading" secondItem="W36-Sh-F6q" secondAttribute="trailing" constant="13" id="qyw-M3-rNe"/>
+                    <constraint firstItem="7Uz-gP-psn" firstAttribute="top" secondItem="YAf-az-nxY" secondAttribute="bottom" constant="4.5" id="rVi-pT-Yvc"/>
+                    <constraint firstItem="Q10-18-Sq8" firstAttribute="leading" secondItem="fey-dk-JTZ" secondAttribute="trailing" constant="8" id="s4w-NW-ndN"/>
+                    <constraint firstItem="FdN-OD-zLl" firstAttribute="leading" secondItem="fey-dk-JTZ" secondAttribute="trailing" constant="6" id="sDo-aL-Swb"/>
+                    <constraint firstItem="RaW-bM-aJH" firstAttribute="leading" secondItem="fey-dk-JTZ" secondAttribute="trailing" constant="8" id="tVx-DB-iJA"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="fey-dk-JTZ" secondAttribute="bottom" constant="8" id="tih-v4-rbb"/>
+                    <constraint firstItem="YAf-az-nxY" firstAttribute="leading" secondItem="FdN-OD-zLl" secondAttribute="trailing" constant="8" id="vei-jI-C8V"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="addressLabel" destination="Q10-18-Sq8" id="fz6-Vs-QTa"/>
+                <outlet property="categoryLabel" destination="RaW-bM-aJH" id="CHs-wH-bwq"/>
+                <outlet property="distanceLabel" destination="YAf-az-nxY" id="Odu-DB-WIr"/>
+                <outlet property="nameLabel" destination="FdN-OD-zLl" id="K4A-Ze-M0Z"/>
+                <outlet property="ratingImageView" destination="W36-Sh-F6q" id="kbc-Cb-COm"/>
+                <outlet property="ratingLabel" destination="YaY-Hc-Ic4" id="Qze-fg-0Qa"/>
+                <outlet property="thumbImageView" destination="fey-dk-JTZ" id="bdX-Xl-6Ch"/>
+            </connections>
+            <point key="canvasLocation" x="258" y="415"/>
+        </tableViewCell>
+    </objects>
+</document>
