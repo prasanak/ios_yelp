@@ -25,7 +25,9 @@
         
         // adress
         NSString *street = [dictionary valueForKeyPath:@"location.address"][0];
-        NSString *neighborhood = [dictionary valueForKeyPath:@"location.neighborhoods"][0];
+        
+        // todo: fix this. yelp api returns city or neighbourhood based on the location. not both. 
+        NSString *neighborhood = [dictionary valueForKeyPath:@"location.city"];
         self.address = [NSString stringWithFormat:@"%@, %@", street, neighborhood];
         
         self.numReviews = [dictionary[@"review_count"] integerValue];

@@ -10,6 +10,7 @@
 #import "YelpClient.h"
 #import "Business.h"
 #import "BusinessCell.h"
+#import "FiltersViewController.h"
 
 NSString * const kYelpConsumerKey = @"U-Esd3cYBQDJ9n_69LlPfw";
 NSString * const kYelpConsumerSecret = @"DlMPGkbPARYWmbi7qWWx6ZD4KqM";
@@ -63,6 +64,9 @@ NSString * const kYelpTokenSecret = @"uE_Y_nq2P833QUzV-btnblqC2Q0";
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     
     self.title = @"Yelp";
+    //[self.navigationController setNavigationBarHidden:YES animated:YES];
+
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Filters" style:UIBarButtonItemStylePlain target:self action:@selector(onFilterButton)];
 }
 
 - (void)didReceiveMemoryWarning
@@ -83,6 +87,19 @@ NSString * const kYelpTokenSecret = @"uE_Y_nq2P833QUzV-btnblqC2Q0";
     
     return cell;
     
+}\
+
+# pragma mark - on filter button
+
+- (void)onFilterButton {
+    NSLog(@"selected filter button");
+    
+    FiltersViewController *vc = [[FiltersViewController alloc] init];
+    
+    UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:vc];
+    
+    [self presentViewController:nvc animated:YES completion:nil];
 }
+
 
 @end
