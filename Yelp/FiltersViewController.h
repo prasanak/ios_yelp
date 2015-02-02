@@ -13,7 +13,7 @@
 @protocol FiltersViewControllerDelegate <NSObject>
 
 - (void)filtersViewController:(FiltersViewController *)
-filtersViewController didChangeFilters:(NSDictionary *)fiters;
+filtersViewController didChangeFilters:(NSDictionary *)filters;
 
 @end
 

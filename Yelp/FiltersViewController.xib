@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FiltersViewController">
             <connections>
+                <outlet property="tableView" destination="19Z-ZR-80o" id="oUr-4q-uSp"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -14,7 +15,41 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="19Z-ZR-80o">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </tableView>
+            </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="19Z-ZR-80o" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="97b-qL-DkV"/>
+                <constraint firstItem="19Z-ZR-80o" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="I2n-Ww-vBR"/>
+                <constraint firstAttribute="bottom" secondItem="19Z-ZR-80o" secondAttribute="bottom" id="ZTN-TO-C5X"/>
+                <constraint firstAttribute="trailing" secondItem="19Z-ZR-80o" secondAttribute="trailing" id="upe-Ms-pZB"/>
+            </constraints>
+            <variation key="default">
+                <mask key="subviews">
+                    <exclude reference="19Z-ZR-80o"/>
+                </mask>
+                <mask key="constraints">
+                    <exclude reference="97b-qL-DkV"/>
+                    <exclude reference="I2n-Ww-vBR"/>
+                    <exclude reference="ZTN-TO-C5X"/>
+                    <exclude reference="upe-Ms-pZB"/>
+                </mask>
+            </variation>
+            <variation key="widthClass=compact">
+                <mask key="subviews">
+                    <include reference="19Z-ZR-80o"/>
+                </mask>
+                <mask key="constraints">
+                    <include reference="97b-qL-DkV"/>
+                    <include reference="I2n-Ww-vBR"/>
+                    <include reference="ZTN-TO-C5X"/>
+                    <include reference="upe-Ms-pZB"/>
+                </mask>
+            </variation>
         </view>
     </objects>
 </document>

@@ -26,6 +26,8 @@ NSString * const kYelpTokenSecret = @"uE_Y_nq2P833QUzV-btnblqC2Q0";
 
 @property (nonatomic, strong) BusinessCell *prototypeBusinessCell;
 
+- (void)fetchBusinessesWithQuery:(NSString *)query params:(NSDictionary *)params;
+
 @end
 
 @implementation MainViewController
@@ -37,20 +39,25 @@ NSString * const kYelpTokenSecret = @"uE_Y_nq2P833QUzV-btnblqC2Q0";
         // You can register for Yelp API keys here: http://www.yelp.com/developers/manage_api_keys
         self.client = [[YelpClient alloc] initWithConsumerKey:kYelpConsumerKey consumerSecret:kYelpConsumerSecret accessToken:kYelpToken accessSecret:kYelpTokenSecret];
         
-        [self.client searchWithTerm:@"Indian" success:^(AFHTTPRequestOperation *operation, id response) {
-            NSLog(@"response: %@", response);
-            NSArray *businessDictionaries = response[@"businesses"];
-            NSLog(@"business: %@", businessDictionaries[0]);
-            
-            self.businesses = [Business businessesWithDictionaries:businessDictionaries];
-            
-            [self.tableView reloadData];
-            
-        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            NSLog(@"error: %@", [error description]);
-        }];
+        [self fetchBusinessesWithQuery:@"Indian" params:nil];
+        
     }
     return self;
+}
+
+- (void)fetchBusinessesWithQuery:(NSString *)query params:(NSDictionary *)params {
+    [self.client searchWithTerm:query params:params success:^(AFHTTPRequestOperation *operation, id response) {
+        NSLog(@"response: %@", response);
+        NSArray *businessDictionaries = response[@"businesses"];
+        NSLog(@"business: %@", businessDictionaries[0]);
+        
+        self.businesses = [Business businessesWithDictionaries:businessDictionaries];
+        
+        [self.tableView reloadData];
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"error: %@", [error description]);
+    }];
 }
 
 - (void)viewDidLoad
@@ -118,8 +125,11 @@ NSString * const kYelpTokenSecret = @"uE_Y_nq2P833QUzV-btnblqC2Q0";
 
 # pragma mark - filter delegate
 
-- (void) filtersViewController:(FiltersViewController *)filtersViewController didChangeFilters:(NSDictionary *)fiters {
-    NSLog(@"fire new network event");
+- (void) filtersViewController:(FiltersViewController *)filtersViewController didChangeFilters:(NSDictionary *)filters {
+    NSLog(@"fire new network event: %@", filters);
+    
+    [self fetchBusinessesWithQuery:@"Restaurants" params:filters];
+
 }
 
 # pragma - prototype business cell
