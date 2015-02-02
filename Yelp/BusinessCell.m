@@ -29,6 +29,9 @@
     self.nameLabel.preferredMaxLayoutWidth = self.nameLabel.frame.size.width;
     self.thumbImageView.clipsToBounds = YES;
     self.thumbImageView.layer.cornerRadius = 2.5;
+    
+    
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
