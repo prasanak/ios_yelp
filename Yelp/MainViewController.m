@@ -17,12 +17,14 @@ NSString * const kYelpConsumerSecret = @"DlMPGkbPARYWmbi7qWWx6ZD4KqM";
 NSString * const kYelpToken = @"jMRKOdbHaFTxQ6jSx8XGv-6Xr4nB_JGr";
 NSString * const kYelpTokenSecret = @"uE_Y_nq2P833QUzV-btnblqC2Q0";
 
-@interface MainViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface MainViewController () <UITableViewDataSource, UITableViewDelegate, FiltersViewControllerDelegate>
 
 @property (nonatomic, strong) YelpClient *client;
 @property (nonatomic, strong) NSArray *businesses;
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+
+@property (nonatomic, strong) BusinessCell *prototypeBusinessCell;
 
 @end
 
@@ -87,7 +89,18 @@ NSString * const kYelpTokenSecret = @"uE_Y_nq2P833QUzV-btnblqC2Q0";
     
     return cell;
     
-}\
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    // hack to compute the height of the cell.
+    
+    self.prototypeBusinessCell.business = self.businesses[indexPath.row];
+    
+    CGSize size = [self.prototypeBusinessCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+    
+    return size.height + 1;
+}
 
 # pragma mark - on filter button
 
@@ -96,10 +109,26 @@ NSString * const kYelpTokenSecret = @"uE_Y_nq2P833QUzV-btnblqC2Q0";
     
     FiltersViewController *vc = [[FiltersViewController alloc] init];
     
+    vc.delegate = self;
+    
     UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:vc];
     
     [self presentViewController:nvc animated:YES completion:nil];
 }
 
+# pragma mark - filter delegate
+
+- (void) filtersViewController:(FiltersViewController *)filtersViewController didChangeFilters:(NSDictionary *)fiters {
+    NSLog(@"fire new network event");
+}
+
+# pragma - prototype business cell
+
+- (BusinessCell *) prototypeBusinessCell {
+    if (!_prototypeBusinessCell) {
+        _prototypeBusinessCell = [self.tableView dequeueReusableCellWithIdentifier:@"BusinessCell"];
+    }
+    return _prototypeBusinessCell;
+}
 
 @end

@@ -10,6 +10,8 @@
 
 @interface FiltersViewController ()
 
+@property (nonatomic, readonly) NSDictionary *filters;
+
 @end
 
 @implementation FiltersViewController
@@ -38,6 +40,7 @@
 
 - (void) onApplyButton {
     NSLog(@"On apply button");
+    [self.delegate filtersViewController:self didChangeFilters:self.filters];
     [self dismissViewControllerAnimated:YES completion:nil];
     
 }
