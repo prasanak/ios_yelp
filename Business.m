@@ -23,8 +23,11 @@
         self.name = dictionary[@"name"];
         self.imageUrl = dictionary[@"image_url"];
         
-        // adress
-        NSString *street = [dictionary valueForKeyPath:@"location.address"][0];
+        // address
+        NSString *street = @"";
+        if([[dictionary valueForKeyPath:@"location.address"] count] > 0) {
+            street = [dictionary valueForKeyPath:@"location.address"][0];
+        }
         
         // todo: fix this. yelp api returns city or neighbourhood based on the location. not both. 
         NSString *neighborhood = [dictionary valueForKeyPath:@"location.city"];
