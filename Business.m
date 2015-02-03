@@ -20,18 +20,24 @@
             [categoryNames addObject:obj[0]];
         }];
         
+        self.categoryNames = categoryNames;
+        
+        
+        
         self.name = dictionary[@"name"];
         self.imageUrl = dictionary[@"image_url"];
         
+
+        // todo: fix this. yelp api returns city or neighbourhood based on the location. not both.
+        NSString *neighborhood = [dictionary valueForKeyPath:@"location.city"];
         // address
         NSString *street = @"";
         if([[dictionary valueForKeyPath:@"location.address"] count] > 0) {
             street = [dictionary valueForKeyPath:@"location.address"][0];
+            self.address = [NSString stringWithFormat:@"%@, %@", street, neighborhood];
+        } else {
+            self.address = neighborhood;
         }
-        
-        // todo: fix this. yelp api returns city or neighbourhood based on the location. not both. 
-        NSString *neighborhood = [dictionary valueForKeyPath:@"location.city"];
-        self.address = [NSString stringWithFormat:@"%@, %@", street, neighborhood];
         
         self.numReviews = [dictionary[@"review_count"] integerValue];
         self.ratingImageUrl = dictionary[@"rating_img_url"];
