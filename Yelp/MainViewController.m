@@ -17,7 +17,7 @@ NSString * const kYelpConsumerSecret = @"DlMPGkbPARYWmbi7qWWx6ZD4KqM";
 NSString * const kYelpToken = @"jMRKOdbHaFTxQ6jSx8XGv-6Xr4nB_JGr";
 NSString * const kYelpTokenSecret = @"uE_Y_nq2P833QUzV-btnblqC2Q0";
 
-@interface MainViewController () <UITableViewDataSource, UITableViewDelegate, FiltersViewControllerDelegate>
+@interface MainViewController () <UITableViewDataSource, UITableViewDelegate, FiltersViewControllerDelegate, UISearchBarDelegate>
 
 @property (nonatomic, strong) YelpClient *client;
 @property (nonatomic, strong) NSArray *businesses;
@@ -27,6 +27,9 @@ NSString * const kYelpTokenSecret = @"uE_Y_nq2P833QUzV-btnblqC2Q0";
 @property (nonatomic, strong) BusinessCell *prototypeBusinessCell;
 
 - (void)fetchBusinessesWithQuery:(NSString *)query params:(NSDictionary *)params;
+
+@property (strong, nonatomic) UISearchBar *searchBar;
+
 
 @end
 
@@ -45,6 +48,38 @@ NSString * const kYelpTokenSecret = @"uE_Y_nq2P833QUzV-btnblqC2Q0";
     return self;
 }
 
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    NSString *searchText = [searchBar text];
+    NSString *searchTerm = [NSString stringWithFormat:@"%@ Restaurants", searchText];
+    [self fetchBusinessesWithQuery:searchTerm params:nil];
+    
+    [self.searchBar resignFirstResponder];
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
+    NSLog(@"Cancel button clicked");
+    [self fetchBusinessesWithQuery:@"Restaurants" params:nil];
+}
+
+- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar {
+    NSString *searchText = [searchBar text];
+    NSString *searchTerm = [NSString stringWithFormat:@"%@ Restaurants", searchText];
+    [self fetchBusinessesWithQuery:searchTerm params:nil];
+    
+    [self.searchBar resignFirstResponder];
+}
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    if ([searchText length] == 0) {
+        [self fetchBusinessesWithQuery:@"Restaurants" params:nil];
+        [self.searchBar resignFirstResponder];
+    }
+}
+
+- (void)tableView:(UITableView *)tableView didHighlightRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self.searchBar resignFirstResponder];
+}
+
 - (void)fetchBusinessesWithQuery:(NSString *)query params:(NSDictionary *)params {
     [self.client searchWithTerm:query params:params success:^(AFHTTPRequestOperation *operation, id response) {
         NSLog(@"response: %@", response);
@@ -59,6 +94,7 @@ NSString * const kYelpTokenSecret = @"uE_Y_nq2P833QUzV-btnblqC2Q0";
         NSLog(@"error: %@", [error description]);
     }];
 }
+
 
 - (void)viewDidLoad
 {
@@ -76,6 +112,15 @@ NSString * const kYelpTokenSecret = @"uE_Y_nq2P833QUzV-btnblqC2Q0";
     //[self.navigationController setNavigationBarHidden:YES animated:YES];
 
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Filters" style:UIBarButtonItemStylePlain target:self action:@selector(onFilterButton)];
+    
+    // setup UI search bar
+    self.searchBar = [[UISearchBar alloc] init];
+    self.navigationItem.titleView = self.searchBar;
+    
+    // todo: setup the autolayout properties of the search bar
+    
+    self.searchBar.delegate = self;
+    
 }
 
 - (void)didReceiveMemoryWarning
