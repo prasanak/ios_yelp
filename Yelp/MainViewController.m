@@ -84,7 +84,7 @@ NSString * const kYelpTokenSecret = @"uE_Y_nq2P833QUzV-btnblqC2Q0";
     [self.client searchWithTerm:query params:params success:^(AFHTTPRequestOperation *operation, id response) {
         NSLog(@"response: %@", response);
         NSArray *businessDictionaries = response[@"businesses"];
-        NSLog(@"business: %@", businessDictionaries[0]);
+        //NSLog(@"business: %@", businessDictionaries[0]);
         
         self.businesses = [Business businessesWithDictionaries:businessDictionaries];
         
