@@ -31,6 +31,6 @@ Time spent: `10`
 
 ### Walkthrough
 
-![demo](https://cloud.githubusercontent.com/assets/10607400/6073095/93252076-ad5e-11e4-88ac-7aa37bfca82f.gif)
+![demo](https://cloud.githubusercontent.com/assets/10607400/6075235/7ff5244a-ad83-11e4-9898-d603520f5d85.gif)
 
 
